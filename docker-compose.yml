@@ -1,0 +1,17 @@
+blog:
+  build: .
+  ports:
+    - "3010:3010"
+    - "3011:3011"
+  extra_hosts:
+    - "registry:${REGISTRY_HOST}"
+  restart: always
+blogdev:
+  build: .
+  ports:
+    - "3010:3010"
+    - "3011:3011"
+  volumes:
+    - "./:/blog"
+  extra_hosts:
+    - "registry:${REGISTRY_HOST}"

@@ -1,0 +1,11 @@
+extends:
+  eslint:recommended
+env:
+  es6: true
+ecmaFeatures:
+  modules: true
+  jsx: true
+plugins:
+  - react
+rules:
+  no-console: 0
