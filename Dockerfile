@@ -1,5 +1,5 @@
 FROM node:5.4
-MAINTAINER nicochane
+MAINTAINER LeReunionais
 
 EXPOSE 3010
 EXPOSE 3011

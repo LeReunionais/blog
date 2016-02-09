@@ -1,0 +1,1 @@
+module.exports = require("npm:redux-logger@2.5.0/lib/index.js");
