@@ -1,16 +1,16 @@
 blog:
   build: .
   ports:
-    - "3010:3010"
-    - "3011:3011"
+    - "3020:3020"
+    - "3021:3021"
   extra_hosts:
     - "registry:${REGISTRY_HOST}"
   restart: always
 blogdev:
   build: .
   ports:
-    - "3010:3010"
-    - "3011:3011"
+    - "3020:3020"
+    - "3021:3021"
   volumes:
     - "./:/blog"
   extra_hosts:

@@ -1,8 +1,8 @@
 FROM node:5.4
 MAINTAINER LeReunionais
 
-EXPOSE 3010
-EXPOSE 3011
+EXPOSE 3020
+EXPOSE 3021
 
 RUN apt-get update
 RUN apt-get install libtool -y
