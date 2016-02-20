@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux';
 import { fetchArticles } from './action/articles.js';
-import Jumbotron from './jumbotron.jsx!'
-import Article from './component/article.jsx!'
+import Brand from './component/brand.jsx!'
+import Articles from './component/articles.jsx!'
 
 class Main extends Component {
   componentDidMount() {
@@ -10,40 +10,26 @@ class Main extends Component {
     dispatch(fetchArticles())
   }
   render() {
-    const { articles } = this.props;
-    const articleList = articles
-    .sort((a,b) => {
-      const dateA = new Date(a.publication);
-      const dateB = new Date(b.publication);
-      if (dateA < dateB) {
-        return 1;
-      }
-      if (dateA > dateB) {
-        return -1;
-      }
-      return 0;
-    })
-    .map( (article) => {
-      return (
-          <Article
-          markdown={article.markdown}
-          publication={article.publication}
-          key={article.publication}
-          />
-      )
-    });
+    const { articles, status } = this.props;
     return (
       <div>
-        <Jumbotron/>
-        { articleList }
+        <Brand/>
+				<Articles status={ status } articles={articles} />
       </div>
     )
   }
 }
 
+Main.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+	articles: PropTypes.array.isRequired,
+	status: PropTypes.object.isRequired
+}
+
 function mapStateToProps(state) {
   return {
-    articles: state
+		articles: state.articles,
+		status: state.status
   }
 }
 export default connect(mapStateToProps)(Main)

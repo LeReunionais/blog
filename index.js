@@ -7,11 +7,17 @@ var registry = require('./lib/registry_utils/registry.js')
   , articles = require('./lib/fetch_articles')
   ;
 
+var bunyan = require('bunyan')
+  , log = bunyan.createLogger({name:"blog"})
+  ;
 var serveStatic = require('serve-static')
   , redirect = require('connect-redirection')
   ;
 
-var REGISTRY_HOST = process.env.REGISTRY_HOST || "registry";
+var REGISTRY_HOST = process.env.REGISTRY_HOST || "registry"
+  , PORT = process.env.PORT || 3020
+  , SECURE_PORT = process.env.SECURE_PORT || 3021
+  ;
 
 var app = connect()
   .use(redirect())
@@ -20,7 +26,14 @@ var app = connect()
       articles(registry, REGISTRY_HOST)
       .then( (articleJSON) => {
         res.end(JSON.stringify(articleJSON));
-      });
+      })
+      .catch( (err) => {
+        log.info(err);
+        res.statusCode = 509;
+        res.statusMessage = 'Service article not accessible';
+        res.end();
+      })
+      ;
   })
   ;
 
@@ -29,10 +42,10 @@ const options = {
   cert: fs.readFileSync('./server.crt')
 }
 
-http2.createServer(options, app).listen(3020, () => {
-  console.log('Securely listening to port https://wxxxxx:3020');
+http2.createServer(options, app).listen(SECURE_PORT, () => {
+  console.log('Securely listening to port https://wxxxxx:' + SECURE_PORT);
 });
 
-http.createServer(app).listen(3021, () => {
-  console.log('Not securely listening to port http://wxxxxx:3021');
+http.createServer(app).listen(PORT, () => {
+  console.log('Not securely listening to port http://wxxxxx:' + PORT);
 });

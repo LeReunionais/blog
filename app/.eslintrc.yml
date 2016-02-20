@@ -1,4 +1,11 @@
 env:
   browser: true
+  es6: true
 plugins:
   - react
+extends: "plugin:react/recommended"
+parserOptions:
+  sourceType: "module"
+  ecmaFeatures:
+    jsx: true
+

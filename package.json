@@ -35,6 +35,7 @@
       "isomorphic-fetch": "npm:isomorphic-fetch@^2.2.1",
       "jsx": "github:floatdrop/plugin-jsx@^1.1.0",
       "react": "npm:react@^0.14.6",
+      "react-bootstrap": "npm:react-bootstrap@^0.28.3",
       "react-dom": "npm:react-dom@^0.14.6",
       "react-markdown": "npm:react-markdown@^1.2.2",
       "react-redux": "npm:react-redux@^4.4.0",

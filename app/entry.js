@@ -7,11 +7,11 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import loggerMiddleware from 'redux-logger';
-import articles from './reducer/articles.js';
+import articlesApp from './reducer/articles.js';
 import Main from './main.jsx!';
 
 let store = createStore(
-  articles,
+  articlesApp,
   applyMiddleware(
     thunkMiddleware,
     loggerMiddleware()
