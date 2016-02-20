@@ -25,6 +25,5 @@ COPY . /blog
 WORKDIR /blog
 
 RUN npm install
-RUN npm run app_install
 
 CMD npm start
