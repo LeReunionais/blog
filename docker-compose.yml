@@ -6,6 +6,12 @@ blog:
   extra_hosts:
     - "registry:${REGISTRY_HOST}"
   restart: always
+test:
+  build: .
+  command: mkdir output
+coverage:
+  build: .
+  command: mkdir coverage
 blogdev:
   build: .
   ports:

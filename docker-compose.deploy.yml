@@ -1,0 +1,2 @@
+blog:
+  image: $DOCKER_REGISTRY/blog:$SERVICE_VERSION
