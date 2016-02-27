@@ -30,7 +30,7 @@ var app = connect()
       .catch( (err) => {
         log.info(err);
         res.statusCode = 509;
-        res.statusMessage = 'Service article not accessible';
+        res.statusMessage = 'Service article not reachable';
         res.end();
       })
       ;
