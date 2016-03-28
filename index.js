@@ -3,7 +3,7 @@ var connect = require('connect');
 var http2 = require('http2');
 var http = require('http');
 var fs = require('fs');
-var registry = require('./lib/registry_utils/registry.js')
+var registry = require('service_js')
   , articles = require('./lib/fetch_articles')
   ;
 
