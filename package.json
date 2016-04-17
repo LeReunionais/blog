@@ -4,7 +4,7 @@
   "description": "Blog ",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "node index.js",
     "app_install": "node_modules/.bin/jspm install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

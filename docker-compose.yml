@@ -18,6 +18,6 @@ blogdev:
     - "3020:3020"
     - "3021:3021"
   volumes:
-    - "./:/blog"
+    - "./:/blog/"
   extra_hosts:
     - "registry:${REGISTRY_HOST}"
