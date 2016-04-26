@@ -10,6 +10,7 @@ var registry = require('service_js')
 var bunyan = require('bunyan')
   , log = bunyan.createLogger({name:"blog"})
   ;
+
 var serveStatic = require('serve-static')
   , redirect = require('connect-redirection')
   ;

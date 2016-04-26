@@ -12,7 +12,7 @@ RUN apt-get install autoconf -y
 RUN apt-get install automake -y
 RUN apt-get install libsodium-dev -y
 
-COPY /zmq /temp
+ADD /zmq /temp
 WORKDIR /temp
 RUN tar -xzf zeromq-4.1.4.tar.gz
 WORKDIR /temp/zeromq-4.1.4
@@ -21,9 +21,11 @@ RUN make
 RUN make install
 RUN ldconfig
 
-COPY . /blog
 WORKDIR /blog
 
+ADD package.json /blog/package.json
 RUN npm install
+
+ADD . /blog
 
 CMD npm start
