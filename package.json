@@ -23,7 +23,7 @@
     "jspm": "^0.16.23",
     "node-uuid": "^1.4.7",
     "serve-static": "^1.10.0",
-    "service_js": "^1.0.0",
+    "service_js": "^1.0.1",
     "zmq": "^2.14.0"
   },
   "jspm": {
